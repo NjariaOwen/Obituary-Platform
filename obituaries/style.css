@@ -1,0 +1,223 @@
+/* style.css */
+
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: rgb(175,128,207);
+  background: linear-gradient(90deg, rgba(175,128,207,1) 0%, rgba(219,102,119,1) 39%);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+/* switcher Styles */
+
+.theme-switch {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+/* Dark Theme Styles */
+
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-theme input,
+body.dark-theme textarea {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+body.dark-theme input[type="submit"],
+body.dark-theme input[type="reset"] {
+  background-color: #444444;
+  color: #ffffff;
+}
+
+body.dark-theme .error-message {
+  color: #ff6b6b;
+}
+
+body.dark-theme .theme-label {
+  color: #ffffff;
+}
+
+body.dark-theme h1 {
+  color: #ffffff;
+}
+
+body.dark-theme label {
+  color: #ffffff;
+}
+
+body.dark-theme .character-count {
+  color: #999999;
+}
+
+/* Form Styles */
+
+form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+input[type="text"], input[type="date"], textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  color: #fff;
+}
+
+input[type="submit"], input[type="reset"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+  background-color: #444;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.character-count {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Loading Animation Styles */
+
+.loading-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #333;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+  }
+  .nav-links a {
+    margin-right: 0;
+  }
+  form {
+    padding: 10px;
+  }
+}
+
+/* Name Card Styles */
+.name-card {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1); /* semi-transparent background */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.name-card h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.name-card p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.name-card strong {
+  color: #f0e68c;
+}
+

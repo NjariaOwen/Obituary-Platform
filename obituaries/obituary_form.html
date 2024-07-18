@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Obituary</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="theme-switch">
+    <label class="switch">
+      <input type="checkbox" id="theme-switch-checkbox">
+      <span class="slider round"></span>
+    </label>
+    <label for="theme-switch-checkbox" class="theme-label">Dark Theme</label>
+  </div>
+  <h1>Submit Obituary</h1>
+  <form action="submit_obituaries.php" method="post">
+    <label for="name">Name of Deceased:</label>
+    <input type="text" id="name" name="name" required>
+    <span class="error-message" id="name-error"></span>
+
+    <label for="date_of_birth">Date of Birth:</label>
+    <input type="date" id="date_of_birth" name="date_of_birth" required>
+    <span class="error-message" id="date_of_birth-error"></span>
+
+    <label for="date_of_death">Date of Death:</label>
+    <input type="date" id="date_of_death" name="date_of_death" required>
+    <span class="error-message" id="date_of_death-error"></span>
+
+    <label for="content">Content:</label>
+    <textarea id="content" name="content" class="textarea" required></textarea>
+    <p>**Note:** You can write a heartfelt message about your loved one and share memories in this section.</p>
+    <span class="character-count">Characters: 0/500</span>
+    <span class="error-message" id="content-error"></span>
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" required>
+    <span class="error-message" id="author-error"></span>
+
+    <input type="submit" value="Submit Obituary" class="submit-button">
+    <input type="reset" value="Reset Form" class="reset-button">
+  </form>
+  <div class="loading-animation" style="display: none;"></div>
+
+  <script>
+    // Add event listener to textarea to update character count
+    const textarea = document.getElementById('content');
+    const characterCount = document.querySelector('.character-count');
+
+    textarea.addEventListener('input', () => {
+      const characters = textarea.value.length;
+      characterCount.textContent = `Characters: ${characters}/500`;
+      if (characters > 500) {
+        characterCount.style.color = 'red';  // fixed typo here
+      } else {
+        characterCount.style.color = 'black';
+      }
+    });
+
+    // Add event listener to form to show loading animation on submit
+    const form = document.querySelector('form');
+    const loadingAnimation = document.querySelector('.loading-animation');
+
+    form.addEventListener('submit', () => {
+      loadingAnimation.style.display = 'block';
+    });
+
+    // Add event listener to reset button to reset form and hide loading animation
+    const resetButton = document.querySelector('.reset-button');
+
+    resetButton.addEventListener('click', () => {
+      form.reset();
+      loadingAnimation.style.display = 'none';
+      characterCount.textContent = 'Characters: 0/500';  // reset character count
+      characterCount.style.color = 'black';  // reset character count color
+    });
+
+    // Add event listener to theme switch
+    const themeSwitchCheckbox = document.getElementById('theme-switch-checkbox');
+
+    themeSwitchCheckbox.addEventListener('change', () => {
+      if (themeSwitchCheckbox.checked) {
+        document.body.classList.add('dark-theme');
+      } else {
+        document.body.classList.remove('dark-theme');
+      }
+    });
+  </script>
+</body>
+</html>
+
+
